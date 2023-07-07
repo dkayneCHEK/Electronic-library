@@ -1,53 +1,49 @@
 package ru.kaynelaynen.springcourse.models;
 
-
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 public class Person {
-    private Long id;
+    private int id;
 
-    @NotEmpty(message = "Name should not be empty")
-    @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
-    private String name;
+    @NotEmpty(message = "Имя не должно быть пустым")
+    @Size(min = 2, max = 100, message = "Имя должно быть от 2 до 100 символов длиной")
+    private String fullName;
 
-    @Min(value = 0, message = "Age should be greater than 0")
-    private int age;
+    @Min(value = 1900, message = "Год рождения должен быть больше, чем 1900")
+    private int yearOfBirthday;
 
     public Person() {
 
     }
 
-    public Person(Long id, String name, int age) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
+    public Person(String fullName, int yearOfBirthday) {
+        this.fullName = fullName;
+        this.yearOfBirthday = yearOfBirthday;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public int getAge() {
-        return age;
+    public int getYearOfBirthday() {
+        return yearOfBirthday;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setYearOfBirthday(int yearOfBirthday) {
+        this.yearOfBirthday = yearOfBirthday;
     }
-
 }
